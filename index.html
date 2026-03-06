@@ -656,6 +656,59 @@
           transform: rotate(5deg);
         }
       }
+      /* ===== GENDER PICKER ===== */
+      .gender-picker {
+        display: flex;
+        gap: 16px;
+        position: relative;
+        z-index: 2;
+        margin-bottom: 8px;
+      }
+      .gender-btn {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        background: rgba(255, 255, 255, 0.07);
+        border: 1.5px solid rgba(201, 184, 240, 0.2);
+        border-radius: 20px;
+        padding: 20px 32px;
+        cursor: pointer;
+        transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        color: rgba(232, 224, 255, 0.7);
+        font-family: "Be Vietnam Pro", sans-serif;
+        font-size: 15px;
+        font-weight: 500;
+        backdrop-filter: blur(8px);
+        min-width: 120px;
+      }
+      .gender-btn:hover {
+        background: rgba(255, 255, 255, 0.13);
+        border-color: rgba(201, 184, 240, 0.5);
+        transform: translateY(-3px);
+      }
+      .gender-btn.selected {
+        border-color: rgba(201, 184, 240, 0.8);
+        background: rgba(201, 184, 240, 0.18);
+        color: #e8e0ff;
+      }
+      .gender-btn.female.selected {
+        border-color: rgba(240, 184, 212, 0.8);
+        background: rgba(240, 184, 212, 0.18);
+      }
+      .gender-btn .gender-icon {
+        font-size: 36px;
+      }
+      .gender-label {
+        font-size: 11px;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        color: rgba(232, 224, 255, 0.45);
+        position: relative;
+        z-index: 2;
+        margin-bottom: 4px;
+      }
+
       .already-msg {
         color: rgba(232, 224, 255, 0.5);
         font-size: 13px;
@@ -788,7 +841,19 @@
               Mỗi lần bấm là một điều bất ngờ dành riêng cho bạn hôm nay 💜
             </p>
 
-            <button class="gift-btn" id="giftBtn" onclick="openGift()">
+            <p class="gender-label" id="genderLabel">Bạn là?</p>
+            <div class="gender-picker" id="genderPicker">
+              <button class="gender-btn female" id="btnFemale" onclick="selectGender('female')">
+                <span class="gender-icon">👩</span>
+                <span>Nữ</span>
+              </button>
+              <button class="gender-btn male" id="btnMale" onclick="selectGender('male')">
+                <span class="gender-icon">👨</span>
+                <span>Nam</span>
+              </button>
+            </div>
+
+            <button class="gift-btn" id="giftBtn" onclick="openGift()" style="display:none">
               <span class="btn-icon">🎁</span>
               <span id="giftBtnText">Bấm để nhận quà</span>
             </button>
@@ -890,6 +955,18 @@
       }
 
       // ===== GIFT =====
+      let selectedGender = null;
+
+      function selectGender(gender) {
+        selectedGender = gender;
+        document.getElementById("btnFemale").classList.toggle("selected", gender === "female");
+        document.getElementById("btnMale").classList.toggle("selected", gender === "male");
+        const btn = document.getElementById("giftBtn");
+        btn.style.display = "inline-flex";
+        btn.disabled = false;
+        document.getElementById("giftBtnText").textContent = "Bấm để nhận quà";
+      }
+
       function getDeviceId() {
         let id = localStorage.getItem("betacom_device_id");
         if (!id) {
@@ -900,13 +977,56 @@
         return id;
       }
 
+      // Quotes cho nam (vui nhộn)
+      const maleQuotes = [
+        "Chúc mừng anh đã... không phải phụ nữ! Nhưng hôm nay vẫn được ăn bánh 🎂",
+        "Nam nhi đại trượng phu — hôm nay cũng được nhận quà như thường! 💪",
+        "Anh không cần 8/3, nhưng 8/3 cần anh... để tặng quà cho chị em 😄",
+        "Ngày của phụ nữ mà anh cũng có quà — cuộc đời đẹp thật! 🎉",
+        "Chúc anh luôn đủ dũng cảm để... đi mua quà đúng giờ cho vợ/bạn gái 😅",
+        "Real men support women — và real men cũng nhận quà 8/3! 🕺",
+        "Anh là người đàn ông may mắn nhất hôm nay. Đừng hỏi tại sao, cứ vui đi! 🎊",
+        "Chúc anh mạnh khỏe, thành công, và nhớ chúc mừng chị em hôm nay nhé! 😎",
+        "Quà này dành cho anh — một người đàn ông biết điều và... biết bấm nút 🖱️",
+        "Hôm nay 8/3, anh được nhận quà đặc biệt: không phải làm việc nhà 😂 (tự bịa thôi)",
+      ];
+
+      // Quotes cho nữ (ngọt ngào)
+      const femaleWishes = [
+        "Chúc bạn luôn rực rỡ như ánh sáng, dịu dàng như hương hoa và mạnh mẽ như chính mình 🌸",
+        "Cảm ơn bạn đã là phần tuyệt vời nhất của Betacom. Hôm nay là ngày của bạn! 💜",
+        "Bạn không chỉ là đồng nghiệp — bạn là nguồn cảm hứng của cả đội ngũ 🌺",
+        "Chúc bạn một ngày tràn đầy yêu thương, niềm vui và những điều bất ngờ thật đẹp ✨",
+        "Phụ nữ mạnh mẽ không cần ai chứng minh — bạn đã tỏa sáng mỗi ngày rồi 🦋",
+        "Chúc bạn luôn được yêu thương đúng cách, đúng người và đúng thời điểm 🌷",
+        "Hôm nay và mãi mãi — bạn xứng đáng với tất cả những điều tốt đẹp nhất 💫",
+        "Cảm ơn bạn đã mang năng lượng tích cực đến Betacom mỗi ngày 🌸",
+        "Chúc bạn một ngày 8/3 thật ngọt ngào, ấm áp và đáng nhớ 🎀",
+        "Bạn là người phụ nữ đặc biệt — hôm nay hãy để mình được chiều chuộng nhé! 💝",
+      ];
+
+      function getRandomQuote(gender) {
+        const list = gender === "male" ? maleQuotes : femaleWishes;
+        return list[Math.floor(Math.random() * list.length)];
+      }
+
+      function getGenderRange(gender) {
+        if (gender === "male") {
+          return Math.floor(Math.random() * (90 - 70 + 1)) + 70;
+        } else {
+          return Math.floor(Math.random() * 61) + 1;
+        }
+      }
+
       async function initGift() {
         const { data } = await db
           .from("gift_claims")
-          .select("stt,wish")
+          .select("stt,wish,gender")
           .eq("device_id", getDeviceId())
           .maybeSingle();
         if (data) {
+          document.getElementById("genderPicker").style.display = "none";
+          document.getElementById("genderLabel").style.display = "none";
           document.getElementById("giftBtn").style.display = "none";
           showResult(data.stt, data.wish, false);
           document.getElementById("alreadyMsg").style.display = "block";
@@ -914,26 +1034,36 @@
       }
 
       async function openGift() {
+        if (!selectedGender) return;
         const btn = document.getElementById("giftBtn");
         btn.disabled = true;
         document.getElementById("giftBtnText").textContent = "Đang xử lý...";
+
+        // Tạo số và quote dựa theo giới tính
+        const stt = getGenderRange(selectedGender);
+        const wish = getRandomQuote(selectedGender);
+
         const { data, error } = await db.rpc("claim_gift", {
           p_device_id: getDeviceId(),
+          p_stt: stt,
+          p_wish: wish,
+          p_gender: selectedGender,
         });
         if (error) {
           btn.disabled = false;
-          document.getElementById("giftBtnText").textContent =
-            "Bấm để nhận quà";
+          document.getElementById("giftBtnText").textContent = "Bấm để nhận quà";
           alert("Lỗi: " + error.message);
           return;
         }
+        document.getElementById("genderPicker").style.display = "none";
+        document.getElementById("genderLabel").style.display = "none";
         btn.style.display = "none";
         if (data.already_claimed) {
           showResult(data.stt, data.wish, false);
           document.getElementById("alreadyMsg").style.display = "block";
         } else {
           launchConfetti();
-          showResult(data.stt, data.wish, true);
+          showResult(data.stt || stt, data.wish || wish, true);
         }
       }
 
