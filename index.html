@@ -793,7 +793,6 @@
           <span class="caption-text"
             >Đại gia đình tuyệt vời của<br /><strong>Betacom</strong></span
           >
-          <span class="caption-count">61 thành viên</span>
         </div>
       </div>
     </div>
@@ -838,10 +837,7 @@
       const SUPABASE_URL = "https://xtznmefndkklnnjrdwtr.supabase.co";
       const SUPABASE_ANON_KEY =
         "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inh0em5tZWZuZGtrbG5uanJkd3RyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzI3NjYxMjQsImV4cCI6MjA4ODM0MjEyNH0.h8pLD8jf-XzlJ8mWtFYeEVR3kKLy-CMv4oSZuzd369w";
-      const db = window.supabase.createClient(
-        SUPABASE_URL,
-        SUPABASE_ANON_KEY,
-      );
+      const db = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
       // ===== STARS =====
       const starsContainer = document.getElementById("stars");
