@@ -1,0 +1,1076 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chúc Mừng 8/3 - Betacom</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Be+Vietnam+Pro:wght@300;400;500;600&display=swap"
+      rel="stylesheet" />
+    <style>
+      :root {
+        --lavender: #c9b8f0;
+        --lavender-light: #e8e0ff;
+        --purple-deep: #7c5cbf;
+        --purple-mid: #a07fd4;
+        --rose: #f0b8d4;
+        --rose-light: #fce8f3;
+        --cream: #fdf8ff;
+        --dark: #2d1b4e;
+        --text-body: #4a3568;
+        --gold: #d4a96a;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Be Vietnam Pro", sans-serif;
+        background: var(--cream);
+        color: var(--dark);
+        overflow-x: hidden;
+      }
+
+      /* ===== HERO ===== */
+      .hero {
+        min-height: 100vh;
+        background: linear-gradient(
+          135deg,
+          #1a0a3d 0%,
+          #3d1a6e 35%,
+          #6b3fa0 65%,
+          #a06bc8 100%
+        );
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+        padding: 40px 20px;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(
+            ellipse at 20% 20%,
+            rgba(201, 184, 240, 0.18) 0%,
+            transparent 60%
+          ),
+          radial-gradient(
+            ellipse at 80% 80%,
+            rgba(240, 184, 212, 0.15) 0%,
+            transparent 55%
+          ),
+          radial-gradient(
+            ellipse at 50% 50%,
+            rgba(160, 127, 212, 0.08) 0%,
+            transparent 70%
+          );
+      }
+
+      /* Floating petals */
+      .petal {
+        position: absolute;
+        border-radius: 50% 0 50% 0;
+        opacity: 0.15;
+        animation: floatPetal linear infinite;
+        pointer-events: none;
+        will-change: transform, opacity;
+      }
+
+      @keyframes floatPetal {
+        0% {
+          transform: translateY(110vh) rotate(0deg);
+          opacity: 0;
+        }
+        10% {
+          opacity: 0.15;
+        }
+        90% {
+          opacity: 0.15;
+        }
+        100% {
+          transform: translateY(-10vh) rotate(720deg);
+          opacity: 0;
+        }
+      }
+
+      .stars {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+      }
+
+      .star {
+        position: absolute;
+        background: white;
+        border-radius: 50%;
+        animation: twinkle ease-in-out infinite;
+      }
+
+      @keyframes twinkle {
+        0%,
+        100% {
+          opacity: 0.1;
+          transform: scale(1);
+        }
+        50% {
+          opacity: 0.7;
+          transform: scale(1.4);
+        }
+      }
+
+      .hero-badge {
+        font-family: "Be Vietnam Pro", sans-serif;
+        font-weight: 500;
+        font-size: 11px;
+        letter-spacing: 5px;
+        text-transform: uppercase;
+        color: var(--lavender);
+        margin-bottom: 24px;
+        position: relative;
+        z-index: 2;
+        animation: fadeUp 1s ease both;
+      }
+
+      .hero-date {
+        font-family: "Playfair Display", serif;
+        font-size: clamp(80px, 18vw, 200px);
+        font-weight: 700;
+        color: transparent;
+        background: linear-gradient(
+          135deg,
+          #e8e0ff 0%,
+          #c9b8f0 30%,
+          #f0b8d4 70%,
+          #ffd6ec 100%
+        );
+        -webkit-background-clip: text;
+        background-clip: text;
+        line-height: 0.9;
+        position: relative;
+        z-index: 2;
+        animation: fadeUp 1s 0.2s ease both;
+        text-shadow: none;
+        filter: drop-shadow(0 0 40px rgba(201, 184, 240, 0.4));
+      }
+
+      .hero-title {
+        font-family: "Playfair Display", serif;
+        font-size: clamp(20px, 5vw, 42px);
+        font-weight: 400;
+        font-style: italic;
+        color: var(--rose-light);
+        margin-top: 8px;
+        position: relative;
+        z-index: 2;
+        animation: fadeUp 1s 0.4s ease both;
+        letter-spacing: 2px;
+      }
+
+      .hero-divider {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        margin: 32px 0;
+        position: relative;
+        z-index: 2;
+        animation: fadeUp 1s 0.6s ease both;
+      }
+
+      .hero-divider span {
+        height: 1px;
+        width: 80px;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(201, 184, 240, 0.6)
+        );
+      }
+
+      .hero-divider span:last-child {
+        background: linear-gradient(
+          90deg,
+          rgba(201, 184, 240, 0.6),
+          transparent
+        );
+      }
+
+      .hero-divider-icon {
+        color: var(--rose);
+        font-size: 20px;
+      }
+
+      .hero-message {
+        font-size: clamp(14px, 2.5vw, 18px);
+        font-weight: 300;
+        color: rgba(232, 224, 255, 0.85);
+        max-width: 580px;
+        line-height: 1.9;
+        position: relative;
+        z-index: 2;
+        animation: fadeUp 1s 0.8s ease both;
+      }
+
+      .hero-from {
+        margin-top: 32px;
+        font-size: 13px;
+        font-weight: 500;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        color: var(--gold);
+        position: relative;
+        z-index: 2;
+        animation: fadeUp 1s 1s ease both;
+      }
+
+      .scroll-cue {
+        position: absolute;
+        bottom: 32px;
+        left: 0;
+        right: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        color: rgba(201, 184, 240, 0.5);
+        font-size: 11px;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        z-index: 2;
+        animation: fadeUp 1s 1.5s ease both;
+      }
+
+      .scroll-line {
+        width: 1px;
+        height: 40px;
+        background: linear-gradient(
+          180deg,
+          rgba(201, 184, 240, 0.5),
+          transparent
+        );
+        animation: scrollPulse 2s ease-in-out infinite;
+      }
+
+      @keyframes scrollPulse {
+        0%,
+        100% {
+          transform: scaleY(1);
+          opacity: 0.5;
+        }
+        50% {
+          transform: scaleY(0.6);
+          opacity: 1;
+        }
+      }
+
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* ===== GALLERY SECTION ===== */
+      .section {
+        padding: 100px 40px;
+        max-width: 1400px;
+        margin: 0 auto;
+      }
+
+      .section-header {
+        text-align: center;
+        margin-bottom: 64px;
+      }
+
+      .section-tag {
+        font-size: 11px;
+        font-weight: 500;
+        letter-spacing: 5px;
+        text-transform: uppercase;
+        color: var(--purple-mid);
+        display: block;
+        margin-bottom: 16px;
+      }
+
+      .section-title {
+        font-family: "Playfair Display", serif;
+        font-size: clamp(28px, 5vw, 52px);
+        font-weight: 700;
+        color: var(--dark);
+        line-height: 1.2;
+      }
+
+      .section-title em {
+        font-style: italic;
+        color: var(--purple-deep);
+      }
+
+      .section-sub {
+        margin-top: 16px;
+        font-size: 15px;
+        font-weight: 300;
+        color: var(--text-body);
+        opacity: 0.7;
+      }
+
+      /* ===== GROUP PHOTO ===== */
+      .group-photo-wrap {
+        position: relative;
+        border-radius: 28px;
+        overflow: hidden;
+        box-shadow:
+          0 24px 80px rgba(124, 92, 191, 0.18),
+          0 0 0 1px rgba(201, 184, 240, 0.2);
+        transition:
+          transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1),
+          box-shadow 0.5s ease;
+      }
+
+      .group-photo-wrap:hover {
+        transform: translateY(-6px) scale(1.01);
+        box-shadow:
+          0 40px 100px rgba(124, 92, 191, 0.28),
+          0 0 0 1px rgba(201, 184, 240, 0.35);
+      }
+
+      .group-photo-wrap img {
+        width: 100%;
+        height: 520px;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.6s ease;
+      }
+
+      .group-photo-wrap:hover img {
+        transform: scale(1.03);
+      }
+
+      .group-photo-placeholder {
+        width: 100%;
+        height: 520px;
+        background: linear-gradient(
+          135deg,
+          #e8e0ff 0%,
+          #c9b8f0 40%,
+          #f0b8d4 100%
+        );
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 16px;
+      }
+
+      .group-photo-placeholder .gp-icon {
+        font-size: 56px;
+        opacity: 0.45;
+      }
+
+      .group-photo-placeholder .gp-text {
+        font-family: "Playfair Display", serif;
+        font-size: 20px;
+        color: var(--purple-deep);
+        opacity: 0.55;
+        font-style: italic;
+      }
+
+      .group-photo-placeholder .gp-sub {
+        font-size: 13px;
+        color: var(--purple-mid);
+        opacity: 0.5;
+        letter-spacing: 1px;
+      }
+
+      .group-photo-caption {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 40px 40px 32px;
+        background: linear-gradient(180deg, transparent, rgba(45, 27, 78, 0.7));
+        color: white;
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+      }
+
+      .group-photo-caption .caption-text {
+        font-family: "Playfair Display", serif;
+        font-size: 22px;
+        font-style: italic;
+        line-height: 1.4;
+      }
+
+      .group-photo-caption .caption-count {
+        font-size: 13px;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        color: var(--lavender);
+        opacity: 0.85;
+        white-space: nowrap;
+        margin-left: 24px;
+      }
+
+      .photo-corner {
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        border-color: rgba(201, 184, 240, 0.45);
+        border-style: solid;
+      }
+      .photo-corner.tl {
+        top: 16px;
+        left: 16px;
+        border-width: 2px 0 0 2px;
+      }
+      .photo-corner.tr {
+        top: 16px;
+        right: 16px;
+        border-width: 2px 2px 0 0;
+      }
+      .photo-corner.bl {
+        bottom: 70px;
+        left: 16px;
+        border-width: 0 0 2px 2px;
+      }
+      .photo-corner.br {
+        bottom: 70px;
+        right: 16px;
+        border-width: 0 2px 2px 0;
+      }
+
+      /* ===== GIFT SECTION ===== */
+      .gift-section {
+        background: linear-gradient(
+          135deg,
+          #1a0a3d 0%,
+          #3d1a6e 50%,
+          #6b3fa0 100%
+        );
+        padding: 100px 40px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .gift-section::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(
+            ellipse at 30% 50%,
+            rgba(201, 184, 240, 0.1) 0%,
+            transparent 60%
+          ),
+          radial-gradient(
+            ellipse at 70% 50%,
+            rgba(240, 184, 212, 0.08) 0%,
+            transparent 55%
+          );
+      }
+
+      .gift-section .section-title {
+        color: white;
+      }
+      .gift-section .section-title em {
+        color: var(--lavender);
+      }
+      .gift-section .section-tag {
+        color: var(--rose);
+      }
+      .gift-section .section-sub {
+        color: rgba(232, 224, 255, 0.6);
+      }
+
+      .gift-btn {
+        margin-top: 48px;
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        background: linear-gradient(135deg, #c9b8f0, #f0b8d4);
+        color: var(--dark);
+        border: none;
+        padding: 20px 48px;
+        border-radius: 100px;
+        font-family: "Be Vietnam Pro", sans-serif;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        position: relative;
+        z-index: 2;
+        transition:
+          transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+          box-shadow 0.3s ease;
+        box-shadow: 0 8px 32px rgba(201, 184, 240, 0.3);
+        letter-spacing: 0.5px;
+      }
+
+      .gift-btn:hover {
+        transform: translateY(-4px) scale(1.04);
+        box-shadow: 0 16px 48px rgba(201, 184, 240, 0.5);
+      }
+
+      .gift-btn:active {
+        transform: scale(0.97);
+      }
+
+      .gift-btn .btn-icon {
+        font-size: 22px;
+      }
+
+      /* Gift result card */
+      .gift-result {
+        margin-top: 48px;
+        position: relative;
+        z-index: 2;
+        display: none;
+        animation: resultPop 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+      }
+
+      .gift-result.show {
+        display: block;
+      }
+
+      @keyframes resultPop {
+        from {
+          opacity: 0;
+          transform: scale(0.7) translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1) translateY(0);
+        }
+      }
+
+      .result-card {
+        display: inline-block;
+        background: rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(201, 184, 240, 0.25);
+        border-radius: 28px;
+        padding: 48px 56px;
+        max-width: 520px;
+        width: 100%;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .result-card::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(
+          ellipse at center,
+          rgba(201, 184, 240, 0.06),
+          transparent 70%
+        );
+        animation: rotateBg 8s linear infinite;
+      }
+
+      @keyframes rotateBg {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      .result-stt-label {
+        font-size: 11px;
+        letter-spacing: 4px;
+        text-transform: uppercase;
+        color: var(--rose);
+        font-weight: 500;
+        margin-bottom: 8px;
+        position: relative;
+      }
+
+      .result-stt {
+        font-family: "Playfair Display", serif;
+        font-size: 80px;
+        font-weight: 700;
+        color: transparent;
+        background: linear-gradient(135deg, #e8e0ff, #f0b8d4);
+        -webkit-background-clip: text;
+        background-clip: text;
+        line-height: 1;
+        position: relative;
+        margin-bottom: 28px;
+      }
+
+      .result-divider {
+        width: 60px;
+        height: 1px;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(201, 184, 240, 0.5),
+          transparent
+        );
+        margin: 0 auto 28px;
+        position: relative;
+      }
+
+      .result-wish {
+        font-family: "Playfair Display", serif;
+        font-size: clamp(16px, 3vw, 22px);
+        font-style: italic;
+        color: rgba(232, 224, 255, 0.9);
+        line-height: 1.7;
+        position: relative;
+      }
+
+      .result-flower {
+        font-size: 36px;
+        margin-top: 24px;
+        display: block;
+        animation: flowerSway 3s ease-in-out infinite;
+        position: relative;
+      }
+
+      @keyframes flowerSway {
+        0%,
+        100% {
+          transform: rotate(-5deg);
+        }
+        50% {
+          transform: rotate(5deg);
+        }
+      }
+
+      .gift-history {
+        margin-top: 32px;
+        position: relative;
+        z-index: 2;
+        display: none;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .gift-history.show {
+        display: flex;
+      }
+
+      .history-tag {
+        background: rgba(201, 184, 240, 0.12);
+        border: 1px solid rgba(201, 184, 240, 0.2);
+        border-radius: 100px;
+        padding: 6px 16px;
+        font-size: 13px;
+        color: rgba(232, 224, 255, 0.6);
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+
+      .history-tag:hover {
+        background: rgba(201, 184, 240, 0.22);
+        color: white;
+      }
+
+      /* ===== FOOTER ===== */
+      .footer {
+        background: var(--dark);
+        padding: 40px;
+        text-align: center;
+        color: rgba(201, 184, 240, 0.4);
+        font-size: 13px;
+        letter-spacing: 1px;
+      }
+
+      .footer strong {
+        color: var(--lavender);
+      }
+
+      /* ===== CONFETTI ===== */
+      .confetti-piece {
+        position: fixed;
+        width: 10px;
+        height: 10px;
+        border-radius: 2px;
+        pointer-events: none;
+        z-index: 9999;
+        animation: confettiFall linear forwards;
+      }
+
+      @keyframes confettiFall {
+        0% {
+          transform: translateY(-20px) rotate(0deg);
+          opacity: 1;
+        }
+        100% {
+          transform: translateY(100vh) rotate(720deg);
+          opacity: 0;
+        }
+      }
+
+      /* ===== RESPONSIVE ===== */
+      @media (max-width: 768px) {
+        .section {
+          padding: 60px 20px;
+        }
+        .gallery-grid {
+          grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+          gap: 8px;
+        }
+        .result-card {
+          padding: 36px 28px;
+        }
+        .gift-section {
+          padding: 60px 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ===== HERO ===== -->
+    <section class="hero" id="hero">
+      <div class="stars" id="stars"></div>
+
+      <div class="hero-badge">✦ BETACOM ✦</div>
+      <div class="hero-date">8·3</div>
+      <div class="hero-title">Ngày Quốc Tế Phụ Nữ</div>
+
+      <div class="hero-divider">
+        <span></span>
+        <span class="hero-divider-icon">🌸</span>
+        <span></span>
+      </div>
+
+      <p class="hero-message">
+        Cảm ơn những người phụ nữ tuyệt vời đã cùng Betacom viết nên những trang
+        sử đẹp nhất.<br />
+        Các bạn không chỉ là đồng nghiệp — các bạn là linh hồn của đội ngũ.
+      </p>
+
+      <div class="hero-from">— Ban Lãnh Đạo Betacom —</div>
+
+      <div class="scroll-cue">
+        <span>Khám phá</span>
+        <div class="scroll-line"></div>
+      </div>
+    </section>
+
+    <!-- ===== GALLERY ===== -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-tag">✦ Đại gia đình Betacom ✦</span>
+        <h2 class="section-title">Cùng nhau tạo nên <em>Betacom</em></h2>
+      </div>
+
+      <div class="group-photo-wrap">
+        <img src="./164A0605.jpg" alt="Ảnh tập thể Betacom" />
+        <div class="photo-corner tl"></div>
+        <div class="photo-corner tr"></div>
+        <div class="photo-corner bl"></div>
+        <div class="photo-corner br"></div>
+        <div class="group-photo-caption">
+          <span class="caption-text"
+            >Đại gia đình tuyệt vời của<br /><strong>Betacom</strong></span
+          >
+          <span class="caption-count">61 thành viên</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== GIFT SECTION ===== -->
+    <section class="gift-section">
+      <div class="section-header">
+        <span class="section-tag">✦ Phần quà đặc biệt ✦</span>
+        <h2 class="section-title">Nhận <em>quà của bạn</em></h2>
+        <p class="section-sub">
+          Mỗi bấm là một điều bất ngờ dành riêng cho bạn hôm nay 💜
+        </p>
+      </div>
+
+      <button class="gift-btn" id="giftBtn" onclick="openGift()">
+        <span class="btn-icon">🎁</span>
+        <span id="giftBtnText">Bấm để nhận quà</span>
+      </button>
+
+      <div class="gift-result" id="giftResult">
+        <div class="result-card">
+          <div class="result-stt-label">Số thứ tự quà của bạn</div>
+          <div class="result-stt" id="resultSTT">—</div>
+          <div class="result-divider"></div>
+          <div class="result-wish" id="resultWish">—</div>
+          <span class="result-flower">🌸</span>
+        </div>
+      </div>
+
+      <div class="gift-history" id="giftHistory"></div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+      <p>Chúc mừng 8/3 💜 <strong>Betacom</strong> — Yêu thương & Trân trọng</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script>
+      // ===== SUPABASE CONFIG =====
+      // TODO: Thay YOUR_SUPABASE_URL và YOUR_SUPABASE_ANON_KEY bằng thông tin project của bạn
+      const SUPABASE_URL = "https://xtznmefndkklnnjrdwtr.supabase.co";
+      const SUPABASE_ANON_KEY =
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inh0em5tZWZuZGtrbG5uanJkd3RyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzI3NjYxMjQsImV4cCI6MjA4ODM0MjEyNH0.h8pLD8jf-XzlJ8mWtFYeEVR3kKLy-CMv4oSZuzd369w";
+      const db = window.supabase.createClient(
+        SUPABASE_URL,
+        SUPABASE_ANON_KEY,
+      );
+
+      // ===== STARS =====
+      const starsContainer = document.getElementById("stars");
+      for (let i = 0; i < 80; i++) {
+        const star = document.createElement("div");
+        star.className = "star";
+        const size = Math.random() * 2.5 + 0.5;
+        star.style.cssText = `
+    width: ${size}px; height: ${size}px;
+    left: ${Math.random() * 100}%;
+    top: ${Math.random() * 100}%;
+    animation-duration: ${Math.random() * 3 + 2}s;
+    animation-delay: ${Math.random() * 4}s;
+  `;
+        starsContainer.appendChild(star);
+      }
+
+      // ===== FLOATING PETALS =====
+      const hero = document.getElementById("hero");
+      const petalColors = [
+        "#c9b8f0",
+        "#f0b8d4",
+        "#e8d5ff",
+        "#ffd6ec",
+        "#d4b8f0",
+      ];
+      const petalCount = window.innerWidth < 768 ? 6 : 12;
+      for (let i = 0; i < petalCount; i++) {
+        const petal = document.createElement("div");
+        petal.className = "petal";
+        const size = Math.random() * 20 + 8;
+        const duration = Math.random() * 8 + 14;
+        // Dùng delay âm để petal xuất hiện ngay khi load, không cần chờ
+        const delay = -(Math.random() * duration);
+        petal.style.cssText = `
+    width: ${size}px; height: ${size * 0.7}px;
+    background: ${petalColors[Math.floor(Math.random() * petalColors.length)]};
+    left: ${Math.random() * 100}%;
+    animation-duration: ${duration}s;
+    animation-delay: ${delay}s;
+    will-change: transform;
+  `;
+        hero.appendChild(petal);
+      }
+
+      // ===== GIFT SYSTEM =====
+      const wishes = [
+        "Chúc bạn luôn tỏa sáng như ánh ban mai, rực rỡ và ấm áp mỗi ngày!",
+        "Cầu mong mọi điều tốt đẹp nhất đến với bạn — hạnh phúc, sức khỏe và thành công!",
+        "Bạn là nguồn cảm hứng cho tất cả mọi người. Chúc mừng ngày của bạn!",
+        "Mong bạn luôn tìm thấy niềm vui trong từng khoảnh khắc nhỏ bé của cuộc sống.",
+        "Chúc bạn một ngày 8/3 đầy nắng vàng, tràn đầy tiếng cười và yêu thương!",
+        "Cảm ơn bạn đã mang đến những điều kỳ diệu cho Betacom mỗi ngày!",
+        "Chúc bạn luôn trẻ đẹp, yêu đời và đạt được mọi ước mơ!",
+        "Hôm nay là ngày của bạn — hãy để mình được chiều chuộng và yêu thương!",
+        "Mong rằng mỗi bước đi của bạn đều được bao phủ bởi hạnh phúc và may mắn.",
+        "Bạn xứng đáng được nhận tất cả những gì tốt đẹp nhất trên đời!",
+        "Chúc bạn ngày 8/3 vui tươi, rạng rỡ như những bông hoa mùa xuân!",
+        "Cảm ơn sự cống hiến tuyệt vời của bạn — Betacom tự hào có bạn!",
+        "Mong bạn luôn được bao quanh bởi những người yêu thương và trân trọng bạn.",
+        "Chúc bạn một năm mới đầy ắp niềm vui, thịnh vượng và sức khỏe!",
+        "Sắc đẹp của bạn không chỉ ở ngoại hình — tâm hồn bạn còn đẹp hơn nhiều!",
+        "Hãy luôn tin tưởng vào bản thân — bạn mạnh mẽ hơn bạn nghĩ nhiều lắm!",
+        "Chúc bạn luôn có năng lượng tích cực và lan tỏa điều đó đến mọi người!",
+        "Mong mọi dự định của bạn đều thành hiện thực trong năm nay!",
+        "Cảm ơn nụ cười của bạn — nó làm sáng cả văn phòng mỗi buổi sáng!",
+        "Chúc bạn và gia đình luôn bình an, hạnh phúc và gắn kết!",
+        "Hôm nay trọn vẹn là ngày của bạn — đừng quên tự thưởng cho mình!",
+        "Bạn là người phụ nữ đáng ngưỡng mộ. Chúc mừng ngày 8/3!",
+        "Mong bạn luôn theo đuổi đam mê và không ngừng phát triển bản thân!",
+        "Chúc bạn mọi giấc mơ đều thành sự thật, mọi nỗ lực đều được đền đáp!",
+        "Cảm ơn bạn đã là một phần không thể thiếu của đại gia đình Betacom!",
+        "Chúc bạn luôn tươi trẻ, năng động và đầy nhiệt huyết trong cuộc sống!",
+        "Mong rằng 8/3 này mang đến cho bạn những điều bất ngờ tuyệt vời nhất!",
+        "Bạn xứng đáng được yêu thương mỗi ngày, không chỉ ngày 8/3 thôi!",
+        "Chúc bạn luôn tìm thấy sức mạnh trong chính mình khi đối mặt với thử thách!",
+        "Cảm ơn bạn đã mang lại sự ấm áp và tích cực cho team mỗi ngày!",
+        "Chúc bạn sức khỏe dồi dào, tình yêu viên mãn và sự nghiệp thăng tiến!",
+        "Mong bạn luôn được sống đúng với phiên bản tốt nhất của chính mình!",
+        "Chúc mừng 8/3! Bạn đẹp từ trong ra ngoài theo cách rất riêng của mình!",
+        "Cảm ơn sự kiên nhẫn và tận tâm của bạn — đó là điều làm nên khác biệt!",
+        "Mong rằng con đường phía trước của bạn trải đầy hoa hồng và nắng vàng!",
+        "Chúc bạn luôn có những người bạn tốt bên cạnh trong mọi thời điểm!",
+        "Hôm nay hãy buông bỏ mọi lo âu và tận hưởng ngày đặc biệt này!",
+        "Bạn làm cho Betacom trở nên tốt hơn mỗi ngày. Trân trọng điều đó!",
+        "Chúc bạn luôn tràn đầy sáng tạo và không ngừng đổi mới trong công việc!",
+        "Mong bạn luôn được hạnh phúc — đơn giản, thuần khiết và thật sự!",
+        "Chúc 8/3 của bạn ngập tràn hoa tươi, chocolate ngon và nụ cười rạng rỡ!",
+        "Cảm ơn bạn vì mọi đóng góp thầm lặng nhưng vô cùng ý nghĩa!",
+        "Mong cuộc sống luôn đối xử tốt với bạn như bạn đối xử tốt với mọi người!",
+        "Chúc bạn luôn có động lực để tiến về phía trước, dù khó khăn đến đâu!",
+        "Bạn xứng đáng được nghe lời cảm ơn và được trân trọng nhiều hơn!",
+        "Chúc mừng ngày 8/3! Hãy để hôm nay là ngày bạn chỉ nghĩ đến bản thân!",
+        "Mong bạn luôn giữ được ngọn lửa đam mê cháy mãi trong tim!",
+        "Cảm ơn bạn đã là người đồng hành tuyệt vời trong hành trình này!",
+        "Chúc bạn một ngày thật trọn vẹn, một năm thật ý nghĩa!",
+        "Bạn là bằng chứng sống rằng phụ nữ có thể làm được mọi thứ!",
+        "Mong rằng mỗi buổi sáng thức dậy, bạn đều cảm thấy biết ơn và hạnh phúc!",
+        "Chúc bạn luôn đủ can đảm để nói không với những gì không phù hợp!",
+        "Cảm ơn bạn đã mang đến năng lượng tích cực cho cả team mỗi ngày!",
+        "Chúc 8/3 này là khởi đầu cho một chương mới đầy hứa hẹn trong cuộc đời bạn!",
+        "Mong bạn tìm được sự cân bằng hoàn hảo giữa công việc và cuộc sống!",
+        "Bạn đẹp không phải vì ai nói, mà vì bạn thật sự là vậy!",
+        "Chúc bạn luôn được làm những việc mình yêu và yêu những việc mình làm!",
+        "Cảm ơn nụ cười, sự chăm chỉ và tấm lòng chân thành của bạn!",
+        "Mong rằng tình yêu, sức khỏe và may mắn luôn đồng hành cùng bạn!",
+        "Chúc mừng 8/3! Bạn xứng đáng được cả thế giới dừng lại và vỗ tay!",
+        "Hãy luôn nhớ: bạn là người phụ nữ phi thường theo cách rất riêng của mình!",
+        "Chúc bạn ngày 8/3 ngập tràn yêu thương từ gia đình và những người thân yêu!",
+      ];
+
+      // ===== DEVICE ID (fingerprint đơn giản, lưu localStorage) =====
+      function getDeviceId() {
+        let id = localStorage.getItem("betacom_device_id");
+        if (!id) {
+          id =
+            "dev_" + Date.now() + "_" + Math.random().toString(36).slice(2, 10);
+          localStorage.setItem("betacom_device_id", id);
+        }
+        return id;
+      }
+
+      // ===== INIT: Kiểm tra đã nhận quà chưa =====
+      async function initGift() {
+        const deviceId = getDeviceId();
+        const btn = document.getElementById("giftBtn");
+
+        // Kiểm tra trong Supabase
+        const { data, error } = await db
+          .from("gift_claims")
+          .select("stt, wish")
+          .eq("device_id", deviceId)
+          .maybeSingle();
+
+        if (data) {
+          // Đã nhận rồi — hiển thị lại kết quả cũ
+          btn.style.display = "none";
+          showResult(data.stt, data.wish, false);
+          showAlreadyClaimed();
+        }
+      }
+
+      function showAlreadyClaimed() {
+        const msg = document.createElement("p");
+        msg.style.cssText =
+          "color: rgba(232,224,255,0.5); font-size:13px; margin-top:16px; position:relative; z-index:2;";
+        msg.textContent = "Bạn đã nhận quà rồi nhé! Chúc mừng 8/3 💜";
+        document.getElementById("giftResult").after(msg);
+      }
+
+      async function openGift() {
+        const btn = document.getElementById("giftBtn");
+        btn.disabled = true;
+        document.getElementById("giftBtnText").textContent = "Đang xử lý...";
+
+        const deviceId = getDeviceId();
+
+        // Gọi DB function — atomic, không race condition
+        const { data, error } = await db.rpc("claim_gift", {
+          p_device_id: deviceId,
+        });
+
+        if (error) {
+          btn.disabled = false;
+          document.getElementById("giftBtnText").textContent =
+            "Bấm để nhận quà";
+          alert("Lỗi: " + error.message + "\nCode: " + error.code);
+          return;
+        }
+
+        btn.style.display = "none";
+
+        if (data.already_claimed) {
+          showResult(data.stt, data.wish, false);
+          showAlreadyClaimed();
+        } else {
+          launchConfetti();
+          showResult(data.stt, data.wish, true);
+        }
+      }
+
+      function showResult(stt, wish, animate) {
+        const result = document.getElementById("giftResult");
+        result.classList.remove("show");
+        setTimeout(
+          () => {
+            document.getElementById("resultSTT").textContent = String(
+              stt,
+            ).padStart(2, "0");
+            document.getElementById("resultWish").textContent = wish;
+            result.classList.add("show");
+            result.scrollIntoView({ behavior: "smooth", block: "center" });
+          },
+          animate ? 300 : 0,
+        );
+      }
+
+      function launchConfetti() {
+        const colors = [
+          "#c9b8f0",
+          "#f0b8d4",
+          "#ffd6ec",
+          "#e8d5ff",
+          "#d4a96a",
+          "#ffffff",
+          "#a07fd4",
+        ];
+        for (let i = 0; i < 60; i++) {
+          setTimeout(() => {
+            const piece = document.createElement("div");
+            piece.className = "confetti-piece";
+            piece.style.cssText = `
+        left: ${Math.random() * 100}vw;
+        top: -10px;
+        background: ${colors[Math.floor(Math.random() * colors.length)]};
+        width: ${Math.random() * 10 + 6}px;
+        height: ${Math.random() * 10 + 6}px;
+        border-radius: ${Math.random() > 0.5 ? "50%" : "2px"};
+        animation-duration: ${Math.random() * 2 + 2}s;
+        animation-delay: 0s;
+      `;
+            document.body.appendChild(piece);
+            setTimeout(() => piece.remove(), 4000);
+          }, i * 30);
+        }
+      }
+
+      // Khởi động
+      initGift();
+    </script>
+  </body>
+</html>
